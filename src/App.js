@@ -63,7 +63,7 @@ function App() {
             />
           </div>
           <div className="form-group">
-            <label>Percent</label>
+            <label>Percent %</label>
             <input
               type="number" className="form-control" id='percent' name='percent' value={percent} placeholder='Enter Percent'
               onChange={onChange}
