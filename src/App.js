@@ -6,12 +6,13 @@ function App() {
     initialMoney: '',
     percent: '',
     process: '',
+    commission: 0,
   })
   const [result, setResult] = useState('')
 
   // console.log(formData);
 
-  const { initialMoney, percent, process } = formData // state'i destructuring yaptik
+  const { initialMoney, percent, process, commission } = formData // state'i destructuring yaptik
 
   const onChange = (e) => {
     setFormData((prevState) => ({ // bu sekilde bir defa yazarak hallediyoruz
@@ -29,13 +30,13 @@ function App() {
     var value1 = Number(initialMoney)
     //var value1 = (Number(initialMoney) * Number(percent) / 100) + Number(initialMoney)
 
-    // for (i = 0; i < process; i++) {
-    //   value1 = ((value1 * Number(percent) / 100) + (value1)) - (value1 / 1000) // komisyonlu sekilde
-    // }
-
     for (i = 0; i < process; i++) {
-      value1 = (value1 * Number(percent) / 100) + (value1)
+      value1 = ((value1 * Number(percent) / 100) + (value1)) - (value1 * Number(commission) / 1000) // komisyonlu sekilde
     }
+
+    // for (i = 0; i < process; i++) {
+    //   value1 = (value1 * Number(percent) / 100) + (value1)
+    // }
 
     setResult(value1.toFixed(2))
   }
@@ -72,6 +73,13 @@ function App() {
             <label>Number of Process</label>
             <input
               type="number" className="form-control" id='process' name='process' value={process} placeholder='Enter process value'
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Commission per 1000</label>
+            <input
+              type="number" className="form-control" id='commission' name='commission' value={commission} placeholder='Enter commission'
               onChange={onChange}
             />
           </div>
