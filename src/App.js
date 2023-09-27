@@ -32,6 +32,8 @@ function App() {
 
     for (i = 0; i < process; i++) {
       value1 = ((value1 * Number(percent) / 100) + (value1)) - (value1 * Number(commission) / 1000) // komisyonlu sekilde
+
+      console.log(i, ": ", value1);
     }
 
     // for (i = 0; i < process; i++) {
