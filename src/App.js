@@ -40,7 +40,7 @@ function App() {
     //   value1 = (value1 * Number(percent) / 100) + (value1)
     // }
 
-    setResult(value1.toFixed(2))
+    setResult(value1.toFixed(8))
   }
 
   // if (isLoading) {
